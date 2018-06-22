@@ -4,3 +4,7 @@ function TrieNo(chave) {
   this.filho = {};
   this.fim = false;
 }
+
+function Trie() {
+  this.root = new TrieNo(null);
+}
