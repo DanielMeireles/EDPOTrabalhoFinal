@@ -8,3 +8,13 @@ function TrieNo(chave) {
 function Trie() {
   this.root = new TrieNo(null);
 }
+
+TrieNo.prototype.getPalavra = function() {
+  var saida = [];
+  var no = this;
+  while (no !== null) {
+    saida.unshift(no.chave);
+    no = no.pai;
+  }
+  return saida.join('');
+};
