@@ -36,3 +36,15 @@ Trie.prototype.insere = function(palavra) {
     trie.insere(auxiliar);
   }
 };
+
+Trie.prototype.palavraExiste = function(palavra) {
+  var no = this.root;
+  for(var i = 0; i < palavra.length; i++) {
+    if (no.filho[palavra[i]]) {
+      no = no.filho[palavra[i]];
+    } else {
+      return false;
+    }
+  }
+  return no.fim;
+};
