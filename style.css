@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font: 16px Arial; 
+  }
+  h1 {
+    color: DodgerBlue !important;
+    text-align: center;
+  }
+  h2 {
+    color: DodgerBlue !important;
+    text-align: center;
+  }
+  h3{
+    color: red;
+  }
