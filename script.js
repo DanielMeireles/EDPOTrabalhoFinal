@@ -48,3 +48,19 @@ Trie.prototype.palavraExiste = function(palavra) {
   }
   return no.fim;
 };
+
+Trie.prototype.busca = function(prefixo) {
+  var no = this.root;
+  var saida = [];
+  for(var i = 0; i < prefixo.length; i++) {
+    if (no.filho[prefixo[i]]) {
+      no = no.filho[prefixo[i]];
+    }
+  }
+  buscaTodasPalavras(no, saida);
+  if(saida.length<maxResultados){
+    return saida.sort();
+  }else{
+    return [];
+  }
+};
