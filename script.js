@@ -110,3 +110,7 @@ function handleDragOver(evt) {
 var dropZone = document.getElementById('txtadj');
 dropZone.addEventListener('txtadj', handleDragOver, false);
 dropZone.addEventListener('drop', handleFileSelect, false);
+
+var foco;
+//Variável que controla o máximo de resultados que devem ser apresentados no auto preenchimento
+var maxResultados = 100;
