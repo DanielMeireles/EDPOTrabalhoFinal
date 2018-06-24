@@ -87,3 +87,5 @@ function buscaTodasPalavras(no, vetor) {
     buscaTodasPalavras(no.filho[child], vetor);
   }
 }
+
+var trie = new Trie();
