@@ -114,3 +114,31 @@ dropZone.addEventListener('drop', handleFileSelect, false);
 var foco;
 //Variável que controla o máximo de resultados que devem ser apresentados no auto preenchimento
 var maxResultados = 100;
+
+function fechaListas() {
+  var x = document.getElementsByClassName("autocomplete-itens");
+  for (var i = 0; i < x.length; i++) {
+      x[i].parentNode.removeChild(x[i]);
+  }
+}
+
+function marcaAtivo(x) {
+  if (!x) return false;
+  desmarcaAtivo(x);
+  if (foco >= x.length) foco = 0;
+  if (foco < 0) foco = (x.length - 1);
+  x[foco].classList.add("autocomplete-ativo");
+}
+
+function desmarcaAtivo(x) {
+  for (var i = 0; i < x.length; i++) {
+    x[i].classList.remove("autocomplete-ativo");
+  }
+}
+
+function replaceAll(procurar, substituir, texto) {
+  while(texto.indexOf(procurar) > -1){
+    texto = texto.replace(procurar, substituir);
+  }
+  return texto;
+}
