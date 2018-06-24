@@ -64,3 +64,17 @@ Trie.prototype.busca = function(prefixo) {
     return [];
   }
 };
+
+Trie.prototype.apagaPalavra = function(palavra) {
+  if(this.palavraExiste(palavra)){
+    var no = this.root;
+    for(var i = 0; i < palavra.length; i++) {
+      if (no.filho[palavra[i]]) {
+        no = no.filho[palavra[i]];
+      } else {
+        return false;
+      }
+    }
+    no.fim = "";
+  }
+};
