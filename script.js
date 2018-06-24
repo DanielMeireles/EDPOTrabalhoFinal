@@ -89,3 +89,24 @@ function buscaTodasPalavras(no, vetor) {
 }
 
 var trie = new Trie();
+
+function handleFileSelect(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+  var arquivo = evt.dataTransfer.files;
+  var reader = new FileReader();  
+  reader.onload = function(event) {            
+    document.getElementById('txtadj').value = event.target.result;
+  }        
+  reader.readAsText(arquivo[0],"UTF-8");
+}
+
+function handleDragOver(evt) {
+  evt.stopPropagation();
+  evt.preventDefault();
+  evt.dataTransfer.dropEffect = 'copy';
+}
+
+var dropZone = document.getElementById('txtadj');
+dropZone.addEventListener('txtadj', handleDragOver, false);
+dropZone.addEventListener('drop', handleFileSelect, false);
