@@ -78,3 +78,12 @@ Trie.prototype.apagaPalavra = function(palavra) {
     no.fim = "";
   }
 };
+
+function buscaTodasPalavras(no, vetor) {
+  if (no.fim) {
+    vetor.unshift(no.getPalavra());
+  }
+  for (var child in no.filho) {
+    buscaTodasPalavras(no.filho[child], vetor);
+  }
+}
