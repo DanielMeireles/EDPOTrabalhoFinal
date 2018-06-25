@@ -240,3 +240,26 @@ document.getElementById("texto").addEventListener("input", function (e) {
     a.appendChild(c);
   }
 });
+
+document.getElementById("texto").addEventListener("keydown", function(e) {
+  var x = document.getElementById("autocomplete-lista");
+  if (x) x = x.getElementsByTagName("div");
+  if (e.keyCode == 40) {
+    foco++;
+    marcaAtivo(x);
+  } else if (e.keyCode == 38) {
+    foco--;
+    marcaAtivo(x);
+  } else if (e.keyCode == 13) {
+    e.preventDefault();
+    if (foco > -1) {
+      if (x) x[foco].click();
+    }else{
+      foco++;
+      marcaAtivo(x);
+      if (foco > -1) {
+        if (x) x[foco].click();
+      }
+    }
+  }
+});
