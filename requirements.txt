@@ -1,0 +1,1 @@
+Como o trabalho foi desenvolvido em HTML/JavaScript, o único requisito necessário é que o usuário tenha um navegador web.
