@@ -173,3 +173,70 @@ document.getElementById("inserir").addEventListener("click", function (e) {
   }
   document.getElementById("txtadj").value = "";
 });
+
+document.getElementById("texto").addEventListener("input", function (e) {
+  var a, b, i, palavra, palavras, auxiliar, vetor;
+  palavras = this.value.split(" ");
+  for(var i in palavras){
+    palavra = palavras[i];
+  }
+  fechaListas();
+  if (!palavra) {
+    return false;
+  }
+  var a = new Date();
+  vetor = trie.busca(palavra);
+  var b = new Date();
+  console.log(b.getTime() - a.getTime());
+  document.getElementById("tempo").value = palavra + ": " + (b.getTime() - a.getTime()) + " ms";
+  foco = -1;
+  a = document.createElement("div");
+  a.setAttribute("id", "autocomplete-lista");
+  a.setAttribute("class", "autocomplete-itens");
+  this.parentNode.appendChild(a);
+  if(vetor.length == 0){
+    b = document.createElement("div");
+    b.innerHTML = 'Para adicionar <strong>' + palavra + '</strong> ao dicionário, clique aqui ou enter';
+    b.addEventListener("click", function(e) {
+      trie.insere(palavra);
+      fechaListas();
+    });
+    a.appendChild(b);
+  }
+  for (i = 0; i < vetor.length; i++) {
+    if (vetor[i].substr(0, palavra.length).toUpperCase() == palavra.toUpperCase()) {
+      b = document.createElement("div");
+      b.innerHTML = "<strong>" + vetor[i].substr(0, palavra.length) + "</strong>";
+      b.innerHTML += vetor[i].substr(palavra.length);
+      b.innerHTML += "<input type='hidden' value='" + vetor[i] + "'>";
+      b.addEventListener("click", function(e) {
+        palavras[palavras.length-1] = this.getElementsByTagName("input")[0].value;
+        auxiliar = "";
+        for(var i in palavras){
+          auxiliar = auxiliar + palavras[i] + " ";
+        }
+        document.getElementById("texto").value = auxiliar;
+        fechaListas();
+      });
+      a.appendChild(b);
+      if(trie.palavraExiste(palavra) && palavra == vetor[i]){
+        c = document.createElement("div");
+        c.innerHTML = "<strong>Excluir "+vetor[i]+ "</strong>";
+        c.addEventListener("click", function(e) {
+          trie.apagaPalavra(palavra);
+          fechaListas();
+        });
+        b.appendChild(c);
+      }
+    }
+  }
+  if(!trie.palavraExiste(palavra) && vetor.length > 0){
+    c = document.createElement("div");
+    c.innerHTML = 'Para adicionar <strong>' + palavra + '</strong> ao dicionário, clique aqui';
+    c.addEventListener("click", function(e) {
+      trie.insere(palavra);
+      fechaListas();
+    });
+    a.appendChild(c);
+  }
+});
