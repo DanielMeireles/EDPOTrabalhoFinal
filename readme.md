@@ -1,5 +1,5 @@
 Projeto Final - Estrutura de Dados Para Pesquisa e Ordenação
-================================
+============================================================
 
 O objetivo do trabalho foi desenvolver uma aplicação de estrutura de dados e algoritmos discutidos em sala de aula. Para isso, fez-se o uso de Árvore Trie para o autopreenchimento de palavras em uma página web.
 
