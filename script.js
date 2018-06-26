@@ -141,29 +141,7 @@ function replaceAll(procurar, substituir, texto) {
 
 document.getElementById("inserir").addEventListener("click", function (e) {
   var dicionario = document.form.txtadj.value;
-  dicionario = replaceAll("\n", ';', dicionario);
-  dicionario = replaceAll(" ", ';', dicionario);
-  dicionario = replaceAll(".", ';', dicionario);
-  dicionario = replaceAll(",", '', dicionario);
-  dicionario = replaceAll(":", '', dicionario);
-  dicionario = replaceAll("?", '', dicionario);
-  dicionario = replaceAll("!", '', dicionario);
-  dicionario = replaceAll("0", '', dicionario);
-  dicionario = replaceAll("1", '', dicionario);
-  dicionario = replaceAll("2", '', dicionario);
-  dicionario = replaceAll("3", '', dicionario);
-  dicionario = replaceAll("4", '', dicionario);
-  dicionario = replaceAll("5", '', dicionario);
-  dicionario = replaceAll("6", '', dicionario);
-  dicionario = replaceAll("7", '', dicionario);
-  dicionario = replaceAll("8", '', dicionario);
-  dicionario = replaceAll("9", '', dicionario);
-  dicionario = replaceAll("ª", '', dicionario);
-  dicionario = replaceAll("º", '', dicionario);
-  dicionario = replaceAll("(", '', dicionario);
-  dicionario = replaceAll(")", '', dicionario);
-  dicionario = replaceAll("-", '', dicionario);
-  dicionario = dicionario.split(";");
+  dicionario = dicionario.split("\n");
   for(var i in dicionario){
     trie.insere(dicionario[i]);
   }
