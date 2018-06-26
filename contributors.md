@@ -21,7 +21,9 @@ Daniel Carlos Meireles
 	4 - Criação de função para buscar todas as palavras;
 	5 - Adição de estilo à página index.html;
 	6 - Criação de função para a manipulação do autopreenchimento;
-	7 - Criação de função para tratamento de texto que será inserido no dicionário.
+	7 - Criação de função para tratamento de texto que será inserido no dicionário;
+	8 - Correção no erro do uppercase;
+	9 - Adição de dicionário com mais palavras.
 
 João Pedro Guedes Presto
 ------------------------
@@ -46,4 +48,5 @@ Luís Gustavo da Cunha Cipriani
 	5 - Adição de estilo à página index.html;
 	6 - Adição de evento que busca as palavras de acordo com a digitação;
 	7 - Adição de arquivo readme.md;
-	8 - Adição de arquivo contributors.md
+	8 - Adição de arquivo contributors.md;
+	9 - Correção no benchmark.
