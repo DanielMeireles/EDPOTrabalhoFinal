@@ -31,10 +31,6 @@ Trie.prototype.insere = function(palavra) {
       no.fim = true;
     }
   }
-  var auxiliar = palavra[0].toUpperCase() + palavra.slice(1);
-  if(auxiliar != palavra){
-    trie.insere(auxiliar);
-  }
 };
 
 Trie.prototype.palavraExiste = function(palavra) {
